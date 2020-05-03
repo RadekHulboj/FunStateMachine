@@ -4,14 +4,14 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 @FunctionalInterface
-public interface IStateMachine {
+public interface IStateMachine<E> {
 
-    TransitionMap apply();
+    TransitionMap<E> apply();
 
-    class TransitionMap {
+    class TransitionMap<E> {
         private States state = States.STOP;
-        public final Map<Events, States> transitions = new ConcurrentHashMap<>();
-        public final Map<States, List<Events>> possibleTransitions = new ConcurrentHashMap<>();
+        public final Map<E, States> transitions = new ConcurrentHashMap<>();
+        public final Map<States, List<E>> possibleTransitions = new ConcurrentHashMap<>();
         private void setState(States state) {
             this.state = state;
         }
@@ -21,10 +21,10 @@ public interface IStateMachine {
     }
 
     enum States {WORK, REGENERATE, STOP, HOLD, ERROR}
-    enum Events {EV_WORK, EV_STOP, EV_REGENERATE, EV_HOLD, EV_ERROR}
 
-    default Optional<States> getState(Events event) {
-        TransitionMap transitionMap = apply();
+
+    default Optional<States> getState(E event) {
+        TransitionMap<E> transitionMap = apply();
         if (transitionMap.possibleTransitions.get(transitionMap.getState()).contains(event)) {
             States state = transitionMap.transitions.get(event);
             transitionMap.setState(state);
