@@ -1,0 +1,17 @@
+
+~squid:S00116"_Rename this field "_possibleTransitions" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸€Œ8Şºê¼.
+~squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ú–Îıÿÿÿÿ8ĞÌâ¼.
+~squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ú–Îıÿÿÿÿ8ĞÌâ¼.
+ysquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ú¨‡È8ĞÌâ¼.
+ysquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ú¨‡È8ĞÌâ¼.
+Ssquid:S3655"5Call "_state.isPresent()" before accessing the value.(ğ—…8ĞÌâ¼.
+ysquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ú¨‡È8ĞÌâ¼.
+~squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ú–Îıÿÿÿÿ8ĞÌâ¼.
+~squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ú–Îıÿÿÿÿ8ĞÌâ¼.
+~squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ú–Îıÿÿÿÿ8ĞÌâ¼.
+’"squid:ClassVariableVisibilityCheck"XMake _transitions a static final constant or non-public and provide accessors if needed.(Ê¯ü¬ÿÿÿÿÿ8ĞÌâ¼.
+ysquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ú¨‡È8ĞÌâ¼.
+{squid:S00116"WRename this field "_transitions" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ê¯ü¬ÿÿÿÿÿ8ĞÌâ¼.
+@squid:S1214""Move constants to a class or enum.(Õü™ö8ĞÌâ¼.
+•"squid:ClassVariableVisibilityCheck"`Make _possibleTransitions a static final constant or non-public and provide accessors if needed.(¸€Œ8Şºê¼.
+ysquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ú¨‡È8ĞÌâ¼.
