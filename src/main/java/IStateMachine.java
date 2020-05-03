@@ -4,7 +4,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 @FunctionalInterface
 public interface IStateMachine<S, E> {
@@ -20,11 +19,9 @@ public interface IStateMachine<S, E> {
         TransitionMap(S state) {
             this.state = state;
         }
-
         private void setState(S state) {
             this.state = state;
         }
-
         public S getState() {
             return this.state;
         }
