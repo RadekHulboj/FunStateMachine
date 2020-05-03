@@ -1,4 +1,5 @@
 import java.util.Collections;
+import java.util.Optional;
 
 public class StateMachineBuilder {
     enum Events {EV_WORK, EV_STOP, EV_REGENERATE, EV_HOLD, EV_ERROR}
@@ -12,7 +13,7 @@ public class StateMachineBuilder {
         return transitionMap;
     }
 
-    private static void executeEvWork(Void aVoid) {
-        System.out.println("executeEvWork");
+    private static void executeEvWork(Optional<Object> aVoid) {
+        aVoid.ifPresent(o -> System.out.println("executeEvWork " + o ));
     }
 }
