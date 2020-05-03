@@ -14,7 +14,7 @@ public class Application {
 
     private static IStateMachine.TransitionMap build() {
         IStateMachine.TransitionMap transitionMap = new IStateMachine.TransitionMap(States.STOP);
-        transitionMap.possibleTransitions.put(States.STOP, Collections.singletonList(Events.EV_STOP));
+        transitionMap.possibleTransitions.put(States.STOP, Optional.of(Collections.singletonList(Events.EV_STOP)));
         transitionMap.transitions.put(Events.EV_STOP, States.STOP);
         return transitionMap;
     }
