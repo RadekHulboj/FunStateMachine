@@ -4,16 +4,18 @@ import java.util.Optional;
 public class Application {
 
     enum Events {EV_WORK, EV_STOP, EV_REGENERATE, EV_HOLD, EV_ERROR}
+    enum States {WORK, REGENERATE, STOP, HOLD, ERROR}
+
     public static void main(String[] args) {
 
-        IStateMachine<Events> IStateMachine = Application::build;
-        Optional<IStateMachine.States> state = IStateMachine.getState(Events.EV_STOP);
+        IStateMachine<States, Events> IStateMachine = Application::build;
+        States state = IStateMachine.getState(Events.EV_STOP);
     }
 
     private static IStateMachine.TransitionMap build() {
-        IStateMachine.TransitionMap transitionMap = new IStateMachine.TransitionMap();
-        transitionMap.possibleTransitions.put(IStateMachine.States.STOP, Collections.singletonList(Events.EV_STOP));
-        transitionMap.transitions.put(Events.EV_STOP, IStateMachine.States.STOP);
+        IStateMachine.TransitionMap transitionMap = new IStateMachine.TransitionMap(States.STOP);
+        transitionMap.possibleTransitions.put(States.STOP, Collections.singletonList(Events.EV_STOP));
+        transitionMap.transitions.put(Events.EV_STOP, States.STOP);
         return transitionMap;
     }
 }

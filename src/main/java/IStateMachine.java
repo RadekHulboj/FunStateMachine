@@ -1,35 +1,47 @@
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
 
 @FunctionalInterface
-public interface IStateMachine<E> {
+public interface IStateMachine<S, E> {
 
-    TransitionMap<E> apply();
+    TransitionMap<S, E> apply();
 
-    class TransitionMap<E> {
-        private States state = States.STOP;
-        public final Map<E, States> transitions = new ConcurrentHashMap<>();
-        public final Map<States, List<E>> possibleTransitions = new ConcurrentHashMap<>();
-        private void setState(States state) {
+    class TransitionMap<S, E> {
+        private S state;
+        public final Map<E, S> transitions = new ConcurrentHashMap<>();
+        public final Map<S, List<E>> possibleTransitions = new ConcurrentHashMap<>();
+        public final Map<E, Optional<Function<Void, Void>>> events = new ConcurrentHashMap<>();
+
+        TransitionMap(S state) {
             this.state = state;
         }
-        public States getState() {
+
+        private void setState(S state) {
+            this.state = state;
+        }
+
+        public S getState() {
             return this.state;
         }
     }
 
-    enum States {WORK, REGENERATE, STOP, HOLD, ERROR}
-
-
-    default Optional<States> getState(E event) {
-        TransitionMap<E> transitionMap = apply();
-        if (transitionMap.possibleTransitions.get(transitionMap.getState()).contains(event)) {
-            States state = transitionMap.transitions.get(event);
-            transitionMap.setState(state);
-            return Optional.of(state);
-        }
-        return Optional.empty();
+    default S getState(E event) {
+        TransitionMap<S, E> transitionMap = apply();
+        Optional<List<E>> list = Optional.of(transitionMap.possibleTransitions.get(transitionMap.getState()));
+        list.ifPresent(listEvents -> {
+            if(listEvents.contains(event)) {
+                Optional<Function<Void, Void>> voidFunctionOpt = transitionMap.events.get(event);
+                if(Objects.nonNull(voidFunctionOpt)) {
+                    voidFunctionOpt.ifPresent(voidFunction -> voidFunction.apply(null));
+                }
+                S state = transitionMap.transitions.get(event);
+                transitionMap.setState(state);
+            }
+        });
+        return transitionMap.getState();
     }
 }
