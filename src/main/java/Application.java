@@ -4,16 +4,16 @@ import java.util.Optional;
 public class Application {
     public static void main(String[] args) {
 
-        StateMachine stateMachine = Application::build;
-        Optional<StateMachine.States> state = stateMachine.getState(StateMachine.Events.EV_STOP);
+        IStateMachine IStateMachine = Application::build;
+        Optional<IStateMachine.States> state = IStateMachine.getState(IStateMachine.Events.EV_STOP);
 
 
     }
 
-    private static StateMachine.TransitionMap build() {
-        StateMachine.TransitionMap transitionMap = new StateMachine.TransitionMap();
-        transitionMap._possibleTransitions.put(StateMachine.States.STOP, Collections.singletonList(StateMachine.Events.EV_STOP));
-        transitionMap._transitions.put(StateMachine.Events.EV_STOP, StateMachine.States.STOP);
+    private static IStateMachine.TransitionMap build() {
+        IStateMachine.TransitionMap transitionMap = new IStateMachine.TransitionMap();
+        transitionMap.possibleTransitions.put(IStateMachine.States.STOP, Collections.singletonList(IStateMachine.Events.EV_STOP));
+        transitionMap.transitions.put(IStateMachine.Events.EV_STOP, IStateMachine.States.STOP);
         return transitionMap;
     }
 }
