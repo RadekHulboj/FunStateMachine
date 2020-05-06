@@ -14,7 +14,7 @@ public class StateMachineBuilder {
     }
 
     // TODO: RaHu working on better using parameter
-    private static void executeEvWork(Optional<Object> aVoid) {
-        aVoid.ifPresent(o -> System.out.println("executeEvWork " + o ));
+    private static void executeEvWork(Optional<?> aVoid) {
+        aVoid.ifPresent(o -> System.out.println("executeEvWork " + o.getClass() ));
     }
 }
