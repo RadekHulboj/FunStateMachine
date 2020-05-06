@@ -5,7 +5,7 @@ public class StateMachineBuilder {
     enum Events {EV_WORK, EV_STOP, EV_REGENERATE, EV_HOLD, EV_ERROR}
     enum States {WORK, REGENERATE, STOP, HOLD, ERROR}
 
-    public IStateMachine.TransitionMap build() {
+    public static IStateMachine.TransitionMap build() {
         IStateMachine.TransitionMap<States, Events> transitionMap = new IStateMachine.TransitionMap(States.STOP);
         transitionMap.possibleTransitions.put(States.STOP, Collections.singletonList(Events.EV_WORK));
         transitionMap.transitions.put(Events.EV_WORK, States.WORK);
@@ -13,7 +13,6 @@ public class StateMachineBuilder {
         return transitionMap;
     }
 
-    // TODO: RaHu working on better using parameter
     private static void executeEvWork(Optional<?> aVoid) {
         aVoid.ifPresent(o -> System.out.println("executeEvWork " + o.getClass() ));
     }

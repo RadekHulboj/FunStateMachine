@@ -41,7 +41,7 @@ public interface IStateMachine<S, E> {
         Optional<List<E>> list = Optional.of(transitionMap.possibleTransitions.get(transitionMap.getState()));
         list.ifPresent(listEvents -> {
             if (listEvents.contains(event)) {
-                Optional<Consumer<Optional<?>>> voidFunctionOpt = Optional.of(transitionMap.events.get(event));
+                Optional<Consumer<Optional<?>>> voidFunctionOpt = Optional.ofNullable(transitionMap.events.get(event));
                 voidFunctionOpt.ifPresent(voidFunction -> voidFunction.accept(t));
                 S state = transitionMap.transitions.get(event);
                 transitionMap.setState(state);
