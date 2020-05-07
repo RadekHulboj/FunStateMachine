@@ -1,3 +1,8 @@
 
-\squid:S1854"9Remove this useless assignment to local variable "state".(ñ‚ë°üÿÿÿÿ8‚øÏ¼.
-Msquid:S1481"*Remove this unused "state" local variable.(ñ‚ë°üÿÿÿÿ8‚øÏ¼.
+Isquid:S1481"+Remove this unused "state3" local variable.(„Ãù»8€¨—Ü.
+Nsquid:S1481"+Remove this unused "state2" local variable.(ì¯ÅÈøÿÿÿÿ8èÀ–Ü.
+Xsquid:S1854":Remove this useless assignment to local variable "state3".(„Ãù»8ş—Ü.
+Isquid:S1481"+Remove this unused "state1" local variable.(‰½×³8èÀ–Ü.
+Xsquid:S1854":Remove this useless assignment to local variable "state1".(‰½×³8ŸŒ»Û.
+psquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£çòÃ8§ÑõÛ.
+]squid:S1854":Remove this useless assignment to local variable "state2".(ì¯ÅÈøÿÿÿÿ8èÀ–Ü.
